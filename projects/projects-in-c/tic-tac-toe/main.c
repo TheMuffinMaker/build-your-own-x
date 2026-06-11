@@ -63,6 +63,16 @@ bool playerHasWon (int size, int arr[size][size], int player)
       return false;
 }
 
+bool isDraw(int size, int arr[size][size])
+{
+    for (int i = 0; i < size; i++)
+        for (int j = 0; j < size; j++)
+            if (arr[i][j] == 0)
+                return false;
+    printf("It's a draw!");
+    return true;
+}
+
 bool isFinished(int size, int arr[size][size])
 {
     if (playerHasWon(size, arr, 1))
@@ -70,6 +80,10 @@ bool isFinished(int size, int arr[size][size])
         return true;
     }
     else if (playerHasWon(size, arr, 2))
+    {
+        return true;
+    }
+    else if (isDraw(size, arr))
     {
         return true;
     }
